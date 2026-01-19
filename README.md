@@ -1,6 +1,8 @@
 ## Условие:
-<img width="781" height="199" alt="image" src="https://github.com/user-attachments/assets/cb88ea5c-e0af-4f9c-93d5-b28874592ffe" />
-<img width="1441" height="894" alt="image" src="https://github.com/user-attachments/assets/4e29e20c-1c91-431e-9e9e-53e6b3100a89" />
+<img width="796" height="220" alt="image" src="https://github.com/user-attachments/assets/7c9a9a3b-ef43-423e-8490-2878b17251aa" />
+<img width="1441" height="904" alt="image" src="https://github.com/user-attachments/assets/bf72e3b0-97ec-4826-8ce2-5b5ba272cb07" />
+
+
 
 ## Код:
     #include <stdio.h>
