@@ -124,12 +124,15 @@
     }
 
 ## Результаты работы программы:
-<img width="510" height="849" alt="image" src="https://github.com/user-attachments/assets/67dcae36-60a4-4a5d-93ff-1face5484587" />
-<img width="738" height="434" alt="image" src="https://github.com/user-attachments/assets/33c64a27-dac3-4ac3-b050-ed4301fa3716" />
-<img width="647" height="266" alt="image" src="https://github.com/user-attachments/assets/8cce7226-00be-4dcf-9aa9-99fd7b6df615" />
-<img width="424" height="330" alt="image" src="https://github.com/user-attachments/assets/77428a74-b9ce-432d-9cf4-1b2fafe4c1fc" />
-<img width="398" height="371" alt="image" src="https://github.com/user-attachments/assets/b6313fba-9cea-4f59-8c8f-e4cdb16008b4" />
-<img width="469" height="1007" alt="image" src="https://github.com/user-attachments/assets/c400a3bc-9ccd-47e5-a22c-87b21464248a" />
+<img width="513" height="523" alt="image" src="https://github.com/user-attachments/assets/2d942f63-a220-4806-990b-fd9b79011958" />
+<img width="861" height="571" alt="image" src="https://github.com/user-attachments/assets/d4d77b4e-0748-4171-8434-e367a5baa736" />
+<img width="572" height="539" alt="image" src="https://github.com/user-attachments/assets/23e606ca-0c24-4540-a23e-fe24f9f3205d" />
+<img width="451" height="496" alt="image" src="https://github.com/user-attachments/assets/25cb22a5-3143-4dad-b3fe-fac4dd0d0c76" />
+<img width="520" height="451" alt="image" src="https://github.com/user-attachments/assets/aa05131f-358c-4920-91e0-ad368b6cf2b3" />
+
+
+
+
 
 
 
