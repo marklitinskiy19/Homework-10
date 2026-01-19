@@ -5,136 +5,114 @@
 
 
 ## Код:
+    #define _CRT_SECURE_NO_DEPRECATE
     #include <stdio.h>
     #include <locale.h>
-
-
-    float side1, side2, side3;
-    char draw_symbol = '*';
+    #include <math.h>
     
-    float area_two_squares(float s1, float s2, float s3) {
-        return s1 * s1 + s2 * s2 + s3 * s3;
+    float area_triangle(float a, float b);
+    void draw_triangle(int a, int b, char symbol);
+    void print_definition_triangle();
+    int get_cathetus_a();
+    int get_cathetus_b();
+    
+    float side_a, side_b;
+    char draw_symbol;
+    
+    float area_triangle(float a, float b) {
+        return (a * b) / 2.0f;
     }
     
-    float area_square(float side) {
-        return side * side;
-    }
+    void draw_triangle(int a, int b, char symbol) {
+        printf("Прямоугольный треугольник (катеты: %d x %d):\n", a, b);
     
-    float compare_figures(float s1, float s2, float s3, float s4, float s5, float s6) {
-        float area1 = area_two_squares(s1, s2, s3);
-        float area2 = area_two_squares(s4, s5, s6);
-        return area1 - area2;
-    }
+        for (int row = 0; row < a; row++) {
+            int width = (int)((float)(row + 1) * b / a + 0.5);
+            if (width < 1) width = 1;
+            if (width > b) width = b;
     
-    void draw_square(int side, char symbol) {
-        for (int i = 0; i < side; i++) {
-            for (int j = 0; j < side; j++) {
+            for (int col = 0; col < width; col++) {
                 printf("%c ", symbol);
             }
             printf("\n");
         }
-        printf("\n");
     }
     
-    void print_definition() {
-        printf("\n=== ОПРЕДЕЛЕНИЕ ФИГУРЫ 'ДВА КВАДРАТА' ===\n");
-        printf("Фигура состоит из трех независимых квадратов\n");
-        printf("с разными длинами сторон. Каждый квадрат имеет:\n");
-        printf("- Все стороны равны\n");
-        printf("- Все углы прямые (90 градусов)\n");
-        printf("- Площадь вычисляется как сторона в квадрате\n");
-        printf("Общая площадь фигуры равна сумме площадей трех квадратов.\n");
+    void print_definition_triangle() {
+        printf("\n=== ОПРЕДЕЛЕНИЕ ПРЯМОУГОЛЬНОГО ТРЕУГОЛЬНИКА ===\n");
+        printf("Прямоугольный треугольник - треугольник с прямым углом (90 градусов).\n");
+        printf("Две стороны, образующие прямой угол, называются катетами.\n");
+        printf("Сторона, противолежащая прямому углу, - гипотенуза.\n");
+        printf("Формула площади: S = (a * b) / 2\n");
+        printf("Теорема Пифагора: c^2 = a^2 + b^2\n");
     }
-    float get_side1() { return side1; }
-    float get_side2() { return side2; }
-    float get_side3() { return side3; }
     
-    void print_parameters() {
-        printf("\n=== ПАРАМЕТРЫ ФИГУРЫ ===\n");
-        printf("Сторона первого квадрата: %.2f\n", get_side1());
-        printf("Сторона второго квадрата: %.2f\n", get_side2());
-        printf("Сторона третьего квадрата: %.2f\n", get_side3());
-        printf("Общая площадь фигуры: %.2f\n", area_two_squares(side1, side2, side3));
+    int get_cathetus_a() {
+        return (int)side_a;
+    }
+    
+    int get_cathetus_b() {
+        return (int)side_b;
     }
     
     int main() {
         setlocale(LC_CTYPE, "RUS");
         int choice;
+        char symbol;
     
-        
-        printf("Введите сторону первого квадрата: ");
-        scanf("%f", &side1);
-        printf("Введите сторону второго квадрата: ");
-        scanf("%f", &side2);
-        printf("Введите сторону третьего квадрата: ");
-        scanf("%f", &side3);
+        printf("Введите длину первого катета (a): ");
+        scanf("%f", &side_a);
+        printf("Введите длину второго катета (b): ");
+        scanf("%f", &side_b);
     
-        
+        if (side_a <= 0 || side_b <= 0) {
+            printf("Ошибка: длины должны быть положительными!\n");
+            return 1;
+        }
+    
         printf("Введите символ для рисования фигуры: ");
-        scanf(" %c", &draw_symbol);
+        scanf(" %c", &symbol);
+        draw_symbol = symbol;
     
         do {
-            printf("\nМеню:\n");
+            printf("\n=== МЕНЮ ===\n");
             printf("1 - Рассчитать площадь\n");
-            printf("2 - Определение фигуры\n");
+            printf("2 - Вывести определение фигуры\n");
             printf("3 - Нарисовать фигуру\n");
-            printf("4 - Сравнить с другой фигурой\n");
-            printf("5 - Вывести параметры фигуры\n");
-            printf("6 - Изменить символ рисования\n");
+            printf("4 - Вывести параметры фигуры\n");
+            printf("5 - Изменить символ рисования\n");
             printf("0 - Выход\n");
-            printf("Выберите: ");
+            printf("Выберите операцию: ");
             scanf("%d", &choice);
     
             switch (choice) {
             case 1:
-                printf("Общая площадь фигуры: %.2f\n", area_two_squares(side1, side2, side3));
+                printf("Площадь треугольника: %.2f\n", area_triangle(side_a, side_b));
                 break;
     
             case 2:
-                print_definition();
+                print_definition_triangle();
                 break;
     
             case 3:
-                printf("Квадрат 1:\n");
-                draw_square((int)side1, draw_symbol);
-                printf("Квадрат 2:\n");
-                draw_square((int)side2, draw_symbol);
-                printf("Квадрат 3:\n");
-                draw_square((int)side3, draw_symbol);
+                draw_triangle((int)side_a, (int)side_b, draw_symbol);
                 break;
     
             case 4:
-            {
-                float s4, s5, s6; printf("Введите стороны второй фигуры:\n");
-                printf("Сторона 1: "); scanf("%f", &s4);
-                printf("Сторона 2: "); scanf("%f", &s5);
-                printf("Сторона 3: "); scanf("%f", &s6);
-    
-                float difference = compare_figures(side1, side2, side3, s4, s5, s6);
-    
-                if (difference > 0) {
-                    printf("Первая фигура больше на %.2f\n", difference);
-                }
-                else if (difference < 0) {
-                    printf("Вторая фигура больше на %.2f\n", -difference);
-                }
-                else {
-                    printf("Фигуры равны по площади\n");
-                }
-            }
-            break;
-    
-            case 5:
-                print_parameters();
+                printf("Катет a: %d\n", get_cathetus_a());
+                printf("Катет b: %d\n", get_cathetus_b());
+                printf("Гипотенуза: %.2f\n", sqrt(side_a * side_a + side_b * side_b));
+                printf("Площадь: %.2f\n", area_triangle(side_a, side_b));
                 break;
     
-            case 6:
+            case 5:
                 printf("Введите новый символ для рисования: ");
                 scanf(" %c", &draw_symbol);
+                printf("Символ изменен на: %c\n", draw_symbol);
                 break;
     
             case 0:
-                printf("Выход\n");
+                printf("Выход из программы\n");
                 break;
     
             default:
